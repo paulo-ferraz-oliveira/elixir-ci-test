@@ -16,6 +16,5 @@ jobs:
         with:
           otp-version: "25"
           elixir-version: "1.14"
-      - run: ls -R ~/.mix
       - run: mix deps.get
       - run: mix dialyzer
