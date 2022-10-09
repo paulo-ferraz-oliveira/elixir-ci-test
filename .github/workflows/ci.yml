@@ -9,12 +9,13 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: |
-            _build
+           ~/.mix 
             deps
           key: doesnt_change
       - uses: erlef/setup-beam@v1
         with:
           otp-version: "25"
           elixir-version: "1.14"
+      - run: ls -R ~/.mix
       - run: mix deps.get
       - run: mix dialyzer
