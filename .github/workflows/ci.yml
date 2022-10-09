@@ -1,0 +1,12 @@
+---
+name: ci
+"on": push
+jobs:
+  ci:
+    steps:
+      - run: actions/checkout@v3
+      - run: erlef/setup-beam@v1
+        with:
+          - otp-version: 25
+          - elixir-version: 1.14
+      - run: mix dialyzer
