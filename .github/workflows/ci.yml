@@ -9,13 +9,11 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: |
-            _build
+            _build/dev
             deps
+            ~/.cargo
+            priv/native
           key: doesnt_change
-      - uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: |
-            .
       - uses: erlef/setup-beam@v1
         with:
           otp-version: "25"
