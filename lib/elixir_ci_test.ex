@@ -3,6 +3,11 @@ defmodule ElixirCiTest do
   Documentation for `ElixirCiTest`.
   """
 
+  use Rustler,
+    otp_app: :elixir_ci_test,
+    crate: :elixircitest,
+    mode: :debug
+
   @doc """
   Hello world.
 
@@ -12,6 +17,10 @@ defmodule ElixirCiTest do
       :world
 
   """
+  def add(_left, _right) do
+    :erlang.nif_error(:nif_not_loaded)
+  end
+
   def hello do
     :world
   end
