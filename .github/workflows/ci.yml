@@ -10,10 +10,20 @@ jobs:
         with:
           path: |
             _build/dev
+          key: doesnt_change1
+      - uses: actions/cache@v3
+        with:
+          path: |
             deps
-            ~/.cargo
-            priv/native
-          key: doesnt_change
+          key: doesnt_change2
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+          key: doesnt_change3
       - uses: erlef/setup-beam@v1
         with:
           otp-version: "25"
